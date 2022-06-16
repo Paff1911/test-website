@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 170px;
+    background: #1a1a1a;
+}
+
+.logo {
+    color: #64e8fd;
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
+.navbar {
+    display: flex;
+}
+
+#menu-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #101010;
+}
+
+.wrapper {
+    max-width: 1080px;
+    margin: 50px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.wrapper .center-line {
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: #fff;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+}
+
+.wrapper .row {
+    display: flex;
+}
+
+.wrapper .row-1 {                       /*Rückt box eins auf die linke seite*/
+    justify-content: flex-start;
+}
+
+.wrapper .row-2 {                       /*Rückt box zwei auf die rechte seite*/
+    justify-content: flex-end;
+}
+
+.wrapper .row section {
+    background: #fff;
+    border-radius: 5px;
+    width: calc(50% - 40px);
+    padding: 20px;
+    position: relative;
+}
+
+.wrapper .row section::before {         /*Kleinen punkte neber dem datum*/
+    position: absolute;
+    content: '';
+    height: 15px;
+    width: 15px;
+    background: #fff;               /*Farbe der kleinen punkte neben der box*/
+    top: 28px;
+    z-index: -1;                        /*Kleinen punkte neber dem datum*/
+    transform: rotate(45deg);           /*Kleinen punkte neber dem datum */
+}
+
+.row-1 section::before {                /* Rückt die kleinen punkte neber dem datum raus aus der box*/
+    right: -7px;
+}
+
+.row-2 section::before {                /*Rückt die kleinen punkte neben dem datum raus aus der box */
+    left: -7px;
+}
+
+.row section .details {                      /*Button design*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row section .details .title {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.row section p {
+    margin: 10px 0 17px 0;
+}
+
+
+
+/*Mobile version (Handy responsive roadmap design)*/
+
+@media(max-width: 790px) {
+    .wrapper .center-line {
+        left: 40px;
+    }
+    .wrapper .row {
+        margin: 30px 0 3px 60px;
+    }
+    .wrapper .row section {
+        width: 100%;
+    }
+    .row-1 section::before {
+        left: -7px;
+    }
+}
+
+@media(max-width: 440px) {
+    .wrapper .center-line,
+    .row section::before {
+        display: none;
+    }
+    .wrapper .row {
+        margin: 10px 0;
+    }
+}
